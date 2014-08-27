@@ -103,8 +103,11 @@ static pngquant_error prepare_output_image(liq_result *result, liq_image *input_
 static void set_palette(liq_result *result, png8_image *output_image);
 static pngquant_error read_image(liq_attr *options, const char *filename, int using_stdin, png24_image *input_image_p, liq_image **liq_image_p, bool keep_input_pixels, bool verbose);
 static pngquant_error write_image(png8_image *output_image, png24_image *output_image24, const char *outname, struct pngquant_options *options);
+
+#if 0
 static char *add_filename_extension(const char *filename, const char *newext);
 static bool file_exists(const char *outname);
+#endif
 
 static void verbose_printf(struct pngquant_options *context, const char *fmt, ...)
 {
@@ -123,6 +126,7 @@ static void verbose_printf(struct pngquant_options *context, const char *fmt, ..
     }
 }
 
+#if 0 // Disabled for Janus usage
 static void log_callback(const liq_attr *attr, const char *msg, void* user_info)
 {
     fprintf(stderr, "%s\n", msg);
@@ -540,6 +544,7 @@ int main(int argc, char *argv[])
 
     return latest_error;
 }
+#endif
 
 pngquant_error pngquant_file(const char *filename, const char *outname, struct pngquant_options *options)
 {
@@ -653,6 +658,7 @@ static void set_palette(liq_result *result, png8_image *output_image)
 }
 
 
+#if 0 // Useless for Janus usage
 static bool file_exists(const char *outname)
 {
     FILE *outfile = fopen(outname, "rb");
@@ -681,6 +687,7 @@ static char *add_filename_extension(const char *filename, const char *newext)
 
     return outname;
 }
+#endif
 
 static void set_binary_mode(FILE *fp)
 {

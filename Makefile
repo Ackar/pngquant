@@ -22,7 +22,7 @@ DLL=libimagequant.dll
 DLLIMP=libimagequant_dll.a
 DLLDEF=libimagequant_dll.def
 
-all: $(BIN)
+all: $(OBJS) $(STATICLIB)
 
 $(STATICLIB):: config.mk
 	$(MAKE) -C lib static
